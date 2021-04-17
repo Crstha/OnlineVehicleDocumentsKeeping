@@ -1,0 +1,29 @@
+ion-title{
+    text-align: center;
+}
+a{
+    font-size: large;
+    color: black;
+}
+
+.center{
+    text-align: center;
+}
+
+ion-content{
+    --ion-background-color:linear-gradient(#70e1f5, #ffd194);
+}
+ion-label{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    
+}
+ion-input{
+    font-size: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.gap{
+    justify-content: space-between;
+    display: flex;
+}

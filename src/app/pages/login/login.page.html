@@ -1,0 +1,42 @@
+<ion-content fullscreen="true">
+  <div>
+    <app-logo></app-logo>
+  </div>
+  
+      <ion-item>
+        <ion-icon name="person"></ion-icon>
+        <ion-label required>Username</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="postData.email"></ion-input> 
+      </ion-item><br>
+      <ion-item>
+        <ion-icon name="key"></ion-icon>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="postData.password"></ion-input> 
+      </ion-item><br>
+
+      <ion-item lines=none fill="clear">
+        If don't have account<a routerLink='/signup' slot="end" fill="clear">Create Account</a>
+      </ion-item>
+       
+      <ion-button shape="round" fill="outline" expand="block"(click)="loginAction()">Login</ion-button>
+
+      <div class="center">
+        <ion-label>Or login With</ion-label><br>
+      </div>
+
+      <div class="gap">
+        <ion-button shape="round" color="primary">
+          <ion-icon name="logo-facebook"></ion-icon>
+          Facebook  
+        </ion-button>
+        <ion-button shape="round" color="warning">
+          <ion-icon name="logo-google"></ion-icon>
+          Google  
+        </ion-button>
+      </div>
+      
+
+
+
+
+</ion-content>
