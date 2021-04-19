@@ -18,8 +18,8 @@ const routes: Routes = [
         loadChildren:() => import('../pages/license/license.module').then( m => m.LicensePageModule)
       },
       {
-        path:'bluebook',
-        loadChildren:() => import('../pages/bluebook/bluebook.module').then( m => m.BluebookPageModule)
+        path:'browse',
+        loadChildren:() => import('../pages/browse/browse.module').then( m => m.BrowsePageModule)
       },
       {
         path:'insurancepaper',

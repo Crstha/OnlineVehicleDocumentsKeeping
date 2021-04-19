@@ -19,10 +19,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/license/license.module').then( m => m.LicensePageModule)
   },
   {
-    path: 'bluebook',
-    loadChildren: () => import('./pages/bluebook/bluebook.module').then( m => m.BluebookPageModule)
-  },
-  {
     path: 'insurancepaper',
     loadChildren: () => import('./pages/insurancepaper/insurancepaper.module').then( m => m.InsurancepaperPageModule)
   },
@@ -37,6 +33,10 @@ const routes: Routes = [
   {
     path: 'licencedepartment',
     loadChildren: () => import('./pages/licencedepartment/licencedepartment.module').then( m => m.LicencedepartmentPageModule)
+  },
+  {
+    path: 'browse',
+    loadChildren: () => import('./pages/browse/browse.module').then( m => m.BrowsePageModule)
   }
 ];
 @NgModule({

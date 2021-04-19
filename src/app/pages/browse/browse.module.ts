@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { BluebookPageRoutingModule } from './bluebook-routing.module';
+import { BrowsePageRoutingModule } from './browse-routing.module';
 
-import { BluebookPage } from './bluebook.page';
+import { BrowsePage } from './browse.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BluebookPageRoutingModule
+    BrowsePageRoutingModule
   ],
-  declarations: [BluebookPage]
+  declarations: [BrowsePage]
 })
-export class BluebookPageModule {}
+export class BrowsePageModule {}
