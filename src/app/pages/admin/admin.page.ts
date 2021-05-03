@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  addDocuments(){
+    this.router.navigate(['/add-documents']);
+  }
+
+  viewDocuments(){
+    this.router.navigate(['/view-documents']);
+  }
+  addDummyDocuments(){
+    this.router.navigate(['/add-dummy-documents']);
   }
 
 }

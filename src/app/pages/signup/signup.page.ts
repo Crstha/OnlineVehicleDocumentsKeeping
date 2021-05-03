@@ -1,7 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-signup',
@@ -9,33 +12,70 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  
-  public postData = {
-    fullname:'',
-    email:'',
-    password:''
-  }
+	name:string;
+	email:string;
+	phone:string;
+	password:string;
+	
 
-  constructor(
-    private router:Router,
-    private http: HttpClient,
-    private authService:AuthService
-  ) { }
+	constructor(
+		// private fb:FormBuilder,
+		private afs: AngularFirestore,
+		private afauth:AngularFireAuth,
+		private router: Router,
+		private loadingCtrl: LoadingController,
+		private toastr:ToastController,
+		) { }
 
-  ngOnInit() {
-  }
+		ngOnInit() {
+		}
 
-  signUpAction(){
-    console.log(this.postData);
-    this.authService.signup((this.postData)).subscribe((res:any)=>{
-      if(res.success){
-        console.log((res.success));
-        this.router.navigate(['/login']);
-      }else if(res.error){
-       console.log((res.err));
-      }
-    },(error:any)=>{
-      console.log("Network Connection Error \n"+ JSON.stringify(error))
-    });
-  }
+
+	async signUpAction(){
+		if(this.name && this.email && this.phone && this.password){
+			const loading = await this.loadingCtrl.create({
+				message:'proccessing',
+				spinner:'crescent',
+				showBackdrop:true
+			});
+			loading.present();
+			this.afauth.createUserWithEmailAndPassword(this.email,this.password)
+			.then((data)=>{
+				data.user.sendEmailVerification();
+				this.afs.collection('user').doc(data.user.uid).set({
+					'userId':data.user.uid,
+					'userName':this.name,
+					'userEmail':this.email,
+					'userPhone':this.phone,
+					'createdAt':Date.now()
+				})
+				.then(()=>{
+					loading.dismiss();
+					this.toast('Registration Success!Please Check Your Email Address', 'success')
+					this.router.navigate(['/login']);
+				})
+				.catch(error=>{
+					loading.dismiss();
+					this.toast(error.message,'danger');
+					
+				})
+			})
+			.catch(error=>{
+				loading.dismiss();
+				this.toast(error.message, 'danger');
+			})
+		}else{
+			this.toast('Please Fill the Form Completely!','warning');
+
+		}
+	}//end of signup
+	async toast(message, status){
+		const toast = await this.toastr.create({
+			message:message,
+			color:status,
+			position:'top',
+			duration:2000
+		});
+		toast.present();
+	}//end of toast
 }

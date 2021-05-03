@@ -1,23 +1,27 @@
-<ion-content fullscreen="true">
+<ion-content  fullscreen="true">
   <app-logo></app-logo>
-  
+  <form>
     <ion-list>
       <ion-item>
         <ion-icon name="person"></ion-icon>
         <ion-label>Full Name</ion-label>
-        <ion-input type="text" [(ngModel)]="postData.fullname"></ion-input> 
+        <ion-input  type="text" name="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" required></ion-input> 
       </ion-item><br>
-
       <ion-item>
         <ion-icon name="mail"></ion-icon>
         <ion-label>Email</ion-label>
-        <ion-input type="text" [(ngModel)]="postData.email"></ion-input> 
+        <ion-input type="email" name="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" required></ion-input> 
+      </ion-item><br>
+      <ion-item>
+        <ion-icon name="call"></ion-icon>
+        <ion-label >Phone Number</ion-label>
+        <ion-input  type="number" name="phone" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" required></ion-input> 
       </ion-item><br>
 
       <ion-item>
         <ion-icon name="key"></ion-icon>
         <ion-label>Password</ion-label>
-        <ion-input type="password" [(ngModel)]="postData.password"></ion-input> 
+        <ion-input  type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required></ion-input> 
       </ion-item><br>
 
       <ion-item lines="none">
@@ -26,6 +30,9 @@
       <ion-button shape="round" fill="outline" expand="block" color="primary" (click)="signUpAction()">Sign Up</ion-button>
 
     </ion-list>
+
+  </form>
+    
   
 
 </ion-content>

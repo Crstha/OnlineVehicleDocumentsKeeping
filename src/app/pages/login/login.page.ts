@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,32 +13,39 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public postData = {
-    email:'',
-    password:''
-  }
+  email:string;
+  password:string;
 
   constructor(
+    private auth:AuthService,
+    private toastr:ToastController,
     private router:Router, 
     private http: HttpClient, 
-    private authService:AuthService
+	  private authObj:AngularFireAuth,
+	
     ) { }
 
   ngOnInit() {
   }
-
+ 
   loginAction(){
-    console.log((this.postData));
-     this.router.navigate(['/home/dashboard']);
-    this.authService.login((this.postData)).subscribe((res: any) => {
-      if (res.success){
-        console.log((res.success));
-        this.router.navigate(['/home/dashboard']);
-      }else if (res.error){
-        console.log(res.error);
-      }
-    }, (error: any) =>{
-       console.log("Network Connection error \n" + error);
-    });
+    if(this.email && this.password)
+    {
+      this.auth.signin(this.email, this.password);
+
+    }else{
+      this.toast('Please enter your email & password','warning');
+    }
   }
-}
+  async toast(message, status)
+  {
+    const toast = await this.toastr.create({
+      message:message,
+      color:status,
+      position:'top',
+      duration:2000
+    });
+    toast.present();
+  }
+
+}  

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>
+      Add License
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="admin"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card color="danger">
+    <ion-card-header>
+      <ion-card-subtitle>Add Documents</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <form class="ion-padding" (submit)="addDocuments()">
+        <ion-item >
+          <ion-label  color="primary" position="stacked">Add Documents</ion-label>
+          <ion-input  name="licensenumber" [(ngModel)]="documentsName" placeholder="Type License Number Here"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none"  color="dark">
+          <input type="file" name="inputFile" (change)="chooseFile($event)" required>
+        </ion-item>
+    
+        <ion-button type="submit">Submit</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-item *ngFor="let document of documents | async">
+        <ion-card slot="start" *ngIf="document.imageUrl">
+          <img [src]="document.imageUrl" alt="">
+          <ion-title>{{ document.title }}</ion-title>
+        </ion-card>
+        <ion-button slot="end" fill="clear" color="danger" (click)="remove(document)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+  </ion-card>
+</ion-content>

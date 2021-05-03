@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InsurancepaperPageRoutingModule } from './insurancepaper-routing.module';
+import { ForgotPasswordPageRoutingModule } from './forgot-password-routing.module';
 
-import { InsurancepaperPage } from './insurancepaper.page';
+import { ForgotPasswordPage } from './forgot-password.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InsurancepaperPageRoutingModule
+    ForgotPasswordPageRoutingModule
   ],
-  declarations: [InsurancepaperPage]
+  declarations: [ForgotPasswordPage]
 })
-export class InsurancepaperPageModule {}
+export class ForgotPasswordPageModule {}
