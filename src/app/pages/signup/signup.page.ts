@@ -56,8 +56,7 @@ export class SignupPage implements OnInit {
 				})
 				.catch(error=>{
 					loading.dismiss();
-					this.toast(error.message,'danger');
-					
+					this.toast(error.message,'danger');	
 				})
 			})
 			.catch(error=>{

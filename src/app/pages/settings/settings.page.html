@@ -6,33 +6,12 @@
 </ion-header>
 
 <ion-content>
-  <!-- <div class="container">
-    <div class="overlay">
-      <ion-avatar>
-        <img src="../../../assets/images/logo.png">
-      </ion-avatar>
-      <ion-button expand="full" *ngIf="!isLoading && !isLoaded" >
-        <ion-icon slot="start" lazy="true" name="image"></ion-icon>
-        <input type="file" (change)="uploadImagetoFirebase($event)" id="file-input" accept="image/png, image/jpg">
-      </ion-button>
-
-      <ion-card *ngIf="!isLoading && !isLoaded">
-        <ion-card-content *ngIf="percentage | async as percent">
-          Progress:{{percent | number}}%
-        <ion-progress-bar value="{{percent / 100}}"></ion-progress-bar>
-
-        </ion-card-content>
-      </ion-card>
-    </div>
-  </div> -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>
         {{user?.userName}}
       </ion-card-title>
-      <ion-card-subtitle>
-        Location
-      </ion-card-subtitle>
+     
     </ion-card-header>
     <ion-card-content>
       <ion-item lines="none">

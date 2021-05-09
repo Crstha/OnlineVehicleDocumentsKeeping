@@ -10,14 +10,22 @@
 
 <ion-content>
   
-  <ion-searchbar color="light" animated placeholder="Input your citizenship Id"></ion-searchbar>
+  <ion-searchbar (ionInput)="search($event)" color="light" animated placeholder="Input your citizenship Id"></ion-searchbar>
   <br>
-  <ion-item>
+  <ion-item *ngFor="let document of resultDocument">
+    <ion-avatar>
+      <img src="{{document.imageUrl}}" alt="" srcset="">
+    </ion-avatar>
+    <ion-label>
+      {{document.title}}
+    </ion-label>
+  </ion-item>
+  <!-- <ion-item>
     <ion-checkbox color="primary"></ion-checkbox>
     <ion-label style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> I hereby provide my consent to <br> DigiDocs to 
       share my details with the <br>Issuers for the purpose of fetching my <br>documents.</ion-label>
 
-  </ion-item>
+  </ion-item> -->
   <br>
   
   <ion-button shape="round" expand="full" color="primary">Get Document</ion-button>

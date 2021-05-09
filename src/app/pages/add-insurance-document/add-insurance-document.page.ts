@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { finalize } from "rxjs/operators";
-import { ImageserviceService } from 'src/app/services/imageservice.service';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { LoadingController } from '@ionic/angular';
-
 @Component({
-  selector: 'app-add-dummy-documents',
-  templateUrl: './add-dummy-documents.page.html',
-  styleUrls: ['./add-dummy-documents.page.scss'],
+  selector: 'app-add-insurance-document',
+  templateUrl: './add-insurance-document.page.html',
+  styleUrls: ['./add-insurance-document.page.scss'],
 })
-export class AddDummyDocumentsPage implements OnInit {
+export class AddInsuranceDocumentPage implements OnInit {
 
   documents: Observable<any[]>;
 
@@ -24,7 +20,7 @@ export class AddDummyDocumentsPage implements OnInit {
   
 
   constructor(private afs: AngularFirestore, private afStorage: AngularFireStorage, private loadingController: LoadingController) {
-    this.documentsRef = afs.collection('Documents')
+    this.documentsRef = afs.collection('InsuranceDetails')
     this.documents = this.documentsRef.valueChanges();
   }
   ngOnInit(){
@@ -55,9 +51,9 @@ export class AddDummyDocumentsPage implements OnInit {
     if(file && file.length) {
       try {
         await this.presentLoading();
-        const task = await this.afStorage.ref('License').child(id).put(file[0])
+        const task = await this.afStorage.ref('Insurance').child(id).put(file[0])
         this.loading.dismiss();
-        return this.afStorage.ref(`License/${id}`).getDownloadURL().toPromise();
+        return this.afStorage.ref(`Insurance/${id}`).getDownloadURL().toPromise();
       } catch (error) {
         console.log(error);
       }
@@ -73,12 +69,11 @@ export class AddDummyDocumentsPage implements OnInit {
 
 
 
-  remove(item){
-    console.log(item);
-    if(item.imageUrl) {
-      this.afStorage.ref(`License/${item.id}`).delete()
+  remove(document){
+    console.log(document);
+    if(document.imageUrl) {
+      this.afStorage.ref(`Insurance/${document.id}`).delete()
     }
-    this.documentsRef.doc(item.id).delete()
+    this.documentsRef.doc(document.id).delete()
   }
 }
-

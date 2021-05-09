@@ -4,36 +4,36 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
   <section>
-    <ion-grid>
+    <ion-grid col-9>
       <ion-row>
-        <ion-col col-6 >
+        <ion-col >
           <ion-card (click)="addDocuments()" text-center padding color="danger">
             <ion-icon name="add-circle"></ion-icon>
-            <h2>Add Documents </h2>
+            <h2>Add Licence </h2>
           </ion-card>
         </ion-col>
-        <ion-col col-6>
-          <ion-card (click)="viewDocuments()" text-center padding color="danger">
-            <ion-icon name="documents"></ion-icon>
-            <h2>View Documents</h2>
+        <ion-col >
+          <ion-card (click)="addBluebookDocuments()" text-center padding color="danger">
+            <ion-icon name="add-circle"></ion-icon>
+            <h2>Add BlueBook</h2>
           </ion-card>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col col-6>
-          <ion-card (click)="addDummyDocuments()" text-center padding color="danger">
-            <ion-icon name="person" ></ion-icon>
-            <h2>Profile</h2>
+          <ion-card (click)="addInsuranceDocuments()" text-center padding color="danger">
+            <ion-icon name="add-circle"></ion-icon>
+            <h2>Add Insurance Paper</h2>
           </ion-card>
         </ion-col>
 
         <ion-col col-6>
           <ion-card text-center padding color="danger">
-            <ion-icon name="person" ></ion-icon>
-            <h2>Profile</h2>
+            <ion-icon name="add-circle"></ion-icon>
+            <h2>Log Out</h2>
           </ion-card>
         </ion-col>
 

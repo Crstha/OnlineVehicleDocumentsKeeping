@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ViewDocumentsPage } from './view-documents.page';
+import { AddBluebookDocumentPage } from './add-bluebook-document.page';
 
-describe('ViewDocumentsPage', () => {
-  let component: ViewDocumentsPage;
-  let fixture: ComponentFixture<ViewDocumentsPage>;
+describe('AddBluebookDocumentPage', () => {
+  let component: AddBluebookDocumentPage;
+  let fixture: ComponentFixture<AddBluebookDocumentPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewDocumentsPage ],
+      declarations: [ AddBluebookDocumentPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ViewDocumentsPage);
+    fixture = TestBed.createComponent(AddBluebookDocumentPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

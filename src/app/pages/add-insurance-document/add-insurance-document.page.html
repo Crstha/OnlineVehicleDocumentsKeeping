@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="danger">
     <ion-title>
-      Add License
+      Add Insurance Paper
     </ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="admin"></ion-back-button>
@@ -12,13 +12,13 @@
 <ion-content color="light">
   <ion-card color="danger">
     <ion-card-header>
-      <ion-card-subtitle>Add Documents</ion-card-subtitle>
+      <ion-card-subtitle>Add Insurance Paper</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <form class="ion-padding" (submit)="addDocuments()">
         <ion-item >
-          <ion-label  color="primary" position="stacked">Add Documents</ion-label>
-          <ion-input  name="licensenumber" [(ngModel)]="documentsName" placeholder="Type License Number Here"></ion-input>
+          <ion-label  color="primary" position="stacked">Add Insurance Document</ion-label>
+          <ion-input  name="insurancenumber" [(ngModel)]="documentsName" placeholder="Type Insurance Number Here"></ion-input>
         </ion-item>
 
         <ion-item lines="none"  color="dark">

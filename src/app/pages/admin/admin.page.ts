@@ -19,11 +19,11 @@ export class AdminPage implements OnInit {
     this.router.navigate(['/add-documents']);
   }
 
-  viewDocuments(){
-    this.router.navigate(['/view-documents']);
+  addBluebookDocuments(){
+    this.router.navigate(['/add-bluebook-document']);
   }
-  addDummyDocuments(){
-    this.router.navigate(['/add-dummy-documents']);
+  addInsuranceDocuments(){
+    this.router.navigate(['/add-insurance-document']);
   }
 
 }

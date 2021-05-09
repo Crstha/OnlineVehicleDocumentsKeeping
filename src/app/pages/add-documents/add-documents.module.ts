@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddDocumentsPageRoutingModule } from './add-documents-routing.module';
 
 import { AddDocumentsPage } from './add-documents.page';
-import{ FormatFileSizePipe } from './format-file-size.pipe';
+
 
 @NgModule({
   imports: [
@@ -17,6 +17,6 @@ import{ FormatFileSizePipe } from './format-file-size.pipe';
     AddDocumentsPageRoutingModule
   ],
   declarations: [AddDocumentsPage,
-  FormatFileSizePipe]
+  ]
 })
 export class AddDocumentsPageModule {}

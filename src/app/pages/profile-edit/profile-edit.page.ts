@@ -41,7 +41,6 @@ export class ProfileEditPage implements OnInit {
       showBackdrop:true
     });
     loading.present();
-
     this.afs.collection('user').doc(this.userId).set({
       'userName':this.name,
       'userEmail':this.email,
@@ -58,6 +57,7 @@ export class ProfileEditPage implements OnInit {
       this.toast(error.message,'danger');
     })
   }
+  
   async toast(message, status){
     const toast = await this.toastr.create({
       message:message,

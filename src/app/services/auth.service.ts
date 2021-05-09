@@ -59,7 +59,6 @@ export class AuthService {
           loading.dismiss();
           this.router.navigate(['/home/dashboard']);
         }
-        
       })
       .catch(error=>{
         loading.dismiss();
@@ -70,7 +69,6 @@ export class AuthService {
       loading.dismiss();
       this.toast(error.message,'danger');
     });
-
   }//end of signin
 
   async signout(){

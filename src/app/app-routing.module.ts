@@ -39,7 +39,8 @@ const routes: Routes = [
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'change-password',
@@ -48,23 +49,30 @@ const routes: Routes = [
   },
   {
     path: 'profile-edit',
-    loadChildren: () => import('./pages/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
+    loadChildren: () => import('./pages/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'browse-papers',
-    loadChildren: () => import('./pages/browse-papers/browse-papers.module').then( m => m.BrowsePapersPageModule)
+    loadChildren: () => import('./pages/browse-papers/browse-papers.module').then( m => m.BrowsePapersPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'add-documents',
-    loadChildren: () => import('./pages/add-documents/add-documents.module').then( m => m.AddDocumentsPageModule)
-  },  {
-    path: 'view-documents',
-    loadChildren: () => import('./pages/view-documents/view-documents.module').then( m => m.ViewDocumentsPageModule)
+    loadChildren: () => import('./pages/add-documents/add-documents.module').then( m => m.AddDocumentsPageModule),
+    
   },
   {
-    path: 'add-dummy-documents',
-    loadChildren: () => import('./pages/add-dummy-documents/add-dummy-documents.module').then( m => m.AddDummyDocumentsPageModule)
-  }
+    path: 'add-bluebook-document',
+    loadChildren: () => import('./pages/add-bluebook-document/add-bluebook-document.module').then( m => m.AddBluebookDocumentPageModule),
+    
+  },
+  {
+    path: 'add-insurance-document',
+    loadChildren: () => import('./pages/add-insurance-document/add-insurance-document.module').then( m => m.AddInsuranceDocumentPageModule),
+   
+  },
+
 
 
 

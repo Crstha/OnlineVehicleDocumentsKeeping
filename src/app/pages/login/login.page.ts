@@ -7,6 +7,7 @@ import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -32,8 +33,11 @@ export class LoginPage implements OnInit {
     if(this.email && this.password)
     {
       this.auth.signin(this.email, this.password);
-
-    }else{
+    
+    // if(this.email=='admin@gmail.com' && this.password=='admin'){
+    //   this.router.navigate(['/admin']);
+    }
+    else{
       this.toast('Please enter your email & password','warning');
     }
   }
