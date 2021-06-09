@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary" shape="round">
-    <ion-title>Insurance Documents</ion-title>
+    <ion-title>Blue Book Documents</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
@@ -16,7 +16,7 @@
   ></ion-searchbar>
 
   <ion-list lines="none">
-    <ion-item *ngFor="let documentItem of insuranceList">
+    <ion-item *ngFor="let documentItem of bluebookList">
       <ion-label class="ion-text-wrap">
         <ion-text color="primary">
           <h3>{{ documentItem.title }}</h3>

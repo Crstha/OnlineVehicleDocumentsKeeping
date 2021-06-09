@@ -10,16 +10,12 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['./add-bluebook-document.page.scss'],
 })
 export class AddBluebookDocumentPage implements OnInit {
-
   documents: Observable<any[]>;
-
   documentsName: string = '';
   documentsRef: AngularFirestoreCollection;
-
   selectedFile: any;
   loading: HTMLIonLoadingElement;
   
-
   constructor(private afs: AngularFirestore, private afStorage: AngularFireStorage, private loadingController: LoadingController) {
     this.documentsRef = afs.collection('BluebookDetails')
     this.documents = this.documentsRef.valueChanges();
@@ -47,7 +43,6 @@ export class AddBluebookDocumentPage implements OnInit {
       console.log(error);
     })
   }
-
   async uploadFile(id, file): Promise<any> {
     if(file && file.length) {
       try {
@@ -60,15 +55,12 @@ export class AddBluebookDocumentPage implements OnInit {
       }
     }
   }
-
   async presentLoading() {
     this.loading = await this.loadingController.create({
       message: 'Please wait...'
     });
     return this.loading.present();
   }
-
-
 
   remove(document){
     console.log(document);

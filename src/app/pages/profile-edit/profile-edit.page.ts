@@ -33,7 +33,6 @@ export class ProfileEditPage implements OnInit {
       this.phone=user.userPhone;
     })
   }
-
   async updateProfile(){
     const loading = await this.loadingCtrl.create({
       message:'Updating..',

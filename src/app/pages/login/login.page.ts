@@ -33,9 +33,6 @@ export class LoginPage implements OnInit {
     if(this.email && this.password)
     {
       this.auth.signin(this.email, this.password);
-    
-    // if(this.email=='admin@gmail.com' && this.password=='admin'){
-    //   this.router.navigate(['/admin']);
     }
     else{
       this.toast('Please enter your email & password','warning');
@@ -53,3 +50,7 @@ export class LoginPage implements OnInit {
   }
 
 }  
+
+
+// if(this.email=='admin@gmail.com' && this.password=='admin'){
+    //   this.router.navigate(['/admin']);

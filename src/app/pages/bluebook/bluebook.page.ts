@@ -3,42 +3,42 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-license',
-  templateUrl: './license.page.html',
-  styleUrls: ['./license.page.scss'],
+  selector: 'app-bluebook',
+  templateUrl: './bluebook.page.html',
+  styleUrls: ['./bluebook.page.scss'],
 })
-export class LicensePage implements OnInit {
+export class BluebookPage implements OnInit {
 
-  public licenseList: any[];
-  public licenseListBackup: any[]; 
+  public bluebookList: any[];
+  public bluebookListBackup: any[]; 
 
   constructor(public fs:AngularFirestore) { }
 
   async ngOnInit() {
-    this.licenseList = await this.initializeItems();
+    this.bluebookList = await this.initializeItems();
   }
 
   async initializeItems(): Promise<any> {
-    const documentList = await this.fs.collection('LicenseDetails')
+    const documentList = await this.fs.collection('BluebookDetails')
       .valueChanges().pipe(first()).toPromise();
-    this.licenseListBackup = documentList;
+    this.bluebookListBackup = documentList;
     return documentList;
   }
 
 
   async filterList(evt) {
-    this.licenseList = this.licenseListBackup;
+    this.bluebookList = this.bluebookListBackup;
     const searchTerm = evt.srcElement.value;
   
     if (!searchTerm) {
       return;
     }
   
-    this.licenseList = this.licenseList.filter(currentDocument => {
+    this.bluebookList = this.bluebookList.filter(currentDocument => {
       if (currentDocument.name && searchTerm) {
         return (currentDocument.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
       }
     });
   }
-}
 
+}

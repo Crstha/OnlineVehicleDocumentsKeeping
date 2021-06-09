@@ -71,7 +71,11 @@ const routes: Routes = [
     path: 'add-insurance-document',
     loadChildren: () => import('./pages/add-insurance-document/add-insurance-document.module').then( m => m.AddInsuranceDocumentPageModule),
    
+  },  {
+    path: 'bluebook',
+    loadChildren: () => import('./pages/bluebook/bluebook.module').then( m => m.BluebookPageModule)
   },
+
 
 
 

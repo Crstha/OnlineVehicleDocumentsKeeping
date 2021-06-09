@@ -21,6 +21,12 @@ const routes: Routes = [
         canActivate:[AuthGuard]
       },
       {
+        path:'bluebook',
+        loadChildren:() => import('../pages/bluebook/bluebook.module').then(m => m.BluebookPageModule),
+        canActivate:[AuthGuard]
+
+      },
+      {
         path:'settings',
         loadChildren:() => import('../pages/settings/settings.module').then( m => m.SettingsPageModule),
         canActivate:[AuthGuard]
